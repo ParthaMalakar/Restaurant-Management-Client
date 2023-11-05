@@ -17,7 +17,7 @@ const TopFood = ({Foods}) => {
                 }
             </div>
             <div className="text-center">
-               <button className="py-2 px-4 bg-cyan-950 rounded-lg text-white"><Link to='/allFoods'>See All Products</Link></button> 
+               <button className="py-2 px-4 bg-cyan-950 rounded-lg text-white mb-4"><Link to='/allFoods'>See All Products</Link></button> 
             </div>
         </div>
     );
