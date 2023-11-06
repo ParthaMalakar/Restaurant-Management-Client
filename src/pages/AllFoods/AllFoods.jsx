@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react';
 import Food from '../Food/Food';
+import './AllFoods.css'
 
 const AllFoods = () => {
     const [foodsItem, setFoodsItem] = useState([]);
     const [value, setValue] = useState([]);
     const [noResultsFound, setNoResultsFound] = useState(false);
     const [back, setBack] = useState(false);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(9);
+    const [count, setCount] = useState(0)
+
+
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+    const pages = [...Array(numberOfPages).keys()];
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch(`http://localhost:5000/foods?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setFoodsItem(data))
-    }, [])
+    }, [currentPage, itemsPerPage])
 
     const handleSearch = () => {
         fetch(`http://localhost:5000/search?name=${value}`)
@@ -22,6 +30,36 @@ const AllFoods = () => {
             })
             .catch((error) => console.error(error));
     };
+    const handleBack=()=>{
+        setBack(false);
+        window.location.reload(true)
+    }
+    useEffect( () =>{
+        fetch('http://localhost:5000/foodsCount')
+        .then(res => res.json())
+        .then(data => setCount(data.count))
+    }, [])
+    const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(0);
+    }
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+   
+
+
     return (
         <div className='bg-slate-300 max-w-7xl mx-auto'>
             <h3 className={`text-center text-3xl mt-2 font-bold pt-6 `}>All Foods </h3>
@@ -47,10 +85,27 @@ const AllFoods = () => {
                 {
                     back ? 
                         <div className='text-center max-w-7xl '>
-                            <button className='btn btn-neutral'>Back</button>
+                            <button onClick={handleBack} className='btn btn-neutral'>Back</button>
                         </div>
                         :<div></div>
                 }
+                      <div className='pagination'>
+                <button onClick={handlePrevPage}>Prev</button>
+                {
+                    pages.map(page => <button
+                        className={`btn btn-outline ${currentPage === page ? 'selected' : undefined}`}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+                <button onClick={handleNextPage}>Next</button>
+                <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                    <option value="3">3</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
         </div>
     );
 };
