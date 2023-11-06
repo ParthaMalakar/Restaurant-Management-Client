@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const FoodDetails = () => {
     const food = useLoaderData();
-    const { food_name, food_image, food_category, price, made_by, food_origin, description } = food;
+    const { _id,food_name, food_image, food_category, price, made_by, food_origin, description } = food;
     return (
         <div className='max-w-7xl mx-auto  bg-base-100 shadow-2xl'>
             <div className="card w-[600px] bg-base-100 mx-auto pt-10 shadow-xl">
@@ -17,7 +17,7 @@ const FoodDetails = () => {
                     <p><span className='font-bold'>Food Origin:</span>{food_origin}</p>
                     <p className=""><span className='font-bold'>Description:</span> {description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary flex-grow">Order</button>
+                       <Link to={`/ordering/${_id}`} className="btn btn-primary flex-grow">Order</Link>
 
                     </div>
                 </div>
