@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo.png'
 const Navbar = () => {
     const navLinks = <>
-    <li><NavLink className="text-lg" to="/">Home</NavLink></li>
+    <li><NavLink className="font-semibold text-lg" to="/">Home</NavLink></li>
 
     <li><NavLink className="font-semibold text-lg" to="/allFoods">All Food Items</NavLink></li>
     <li><NavLink className="font-semibold text-lg" to="/blog">Blog</NavLink></li>

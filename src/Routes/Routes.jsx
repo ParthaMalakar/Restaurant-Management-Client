@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import AllFoods from "../pages/AllFoods/AllFoods";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import BlogPage from "../pages/BlogPage/BlogPage";
+import Login from "../pages/Login/Login";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
             path: '/',
             element: <Home></Home>,
             loader:()=>fetch('http://localhost:5000/topsell')
+        },
+        {
+            path:'/login',
+            element:<Login></Login>,
+            
         }, 
         {
             path:'/allFoods',
