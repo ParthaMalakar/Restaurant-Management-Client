@@ -12,6 +12,13 @@ const Navbar = () => {
     <li><NavLink className="font-semibold text-lg" to="/blog">Blog</NavLink></li>
     <li><NavLink className=" font-semibold text-lg" to="/mycart">About Us</NavLink></li>
 </>
+const handleProfile =()=>{
+    Swal.fire(
+        'Logout success!',
+        'You clicked the button!',
+        'success'
+      )
+}
 const handleSignOut = () => {
     logOut()
         .then(()=>{
@@ -51,7 +58,7 @@ const handleSignOut = () => {
                 
             { 
                         user ?  <div className=" md:flex items-center ">
-                            <img className="ml-28 md:ml-0 md:w-[30px] h-11 md:h-7 rounded-full" src={user.photoURL} alt="" />
+                            <img onClick={handleProfile} className="ml-28 md:ml-0 md:w-[30px] h-11 md:h-7 rounded-full" src={user.photoURL} alt="" />
                             <p>UserName:{user.displayName}</p>
                             
                             <button onClick={handleSignOut} className="btn ml-20 md:ml-0">Sign Out</button>
