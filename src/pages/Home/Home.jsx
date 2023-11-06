@@ -17,7 +17,10 @@ const Home = () => {
         <Reservation></Reservation>
         
         </div>
+        <div className='max-w-7xl mx-auto'>
         <Menu></Menu>
+        </div>
+        
         </div>
     );
 };

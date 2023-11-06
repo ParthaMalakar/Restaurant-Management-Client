@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         {
             path:'/allFoods',
             element:<AllFoods></AllFoods>,
-            loader:()=>fetch('http://localhost:5000/foods')
+            
         }
     ]
 },

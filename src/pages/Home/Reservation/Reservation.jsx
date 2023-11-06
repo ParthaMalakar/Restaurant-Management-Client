@@ -1,7 +1,7 @@
 
 const Reservation = () => {
     return (
-        <div className="text-center w-[650px] mx-auto mb-3 ">
+        <div className="text-center md:w-[650px] mx-auto mb-3 ">
 
             <h3 className={`text-center text-3xl mt-3 font-bold text-red-400 pb-5 `}><i>Reservation</i></h3>
             <p className="text-center ">Welcome to FoodieFleet, your destination for exceptional dining experiences. Our user-friendly website allows you to easily book a table for any occasion, and we offer real-time availability updates to ensure your plans align perfectly. Join us for a memorable culinary adventure – book your table today!</p>
