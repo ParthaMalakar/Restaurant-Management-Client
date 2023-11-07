@@ -23,7 +23,7 @@ const MyaddedFood = () => {
             </div>
             : <div></div>      
         }
-         <div className='ml-10 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2'>
+         <div className='lg:ml-10 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-2'>
                 {
                     Myaddedfood.map(food => <MyFood
                         key={food._id} food={food}></MyFood>)

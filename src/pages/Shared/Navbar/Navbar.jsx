@@ -60,7 +60,7 @@ const Navbar = () => {
                         user ? <div className=" md:flex items-center ">
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle">
-                                <img  className="ml-28 md:ml-0 md:w-[40px] h-11 md:h-9 rounded-full" src={user.photoURL} alt="" />
+                                <img  className="ml-40 md:ml-0 md:w-[40px] h-11 md:h-9 rounded-full" src={user.photoURL} alt="" />
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <Link to={`/myfood`} className="hover:bg-amber-300 font-semibold ml-3 p-2 mb-4 bg-gray-300 rounded-xl"><a>My added food items</a></Link>
