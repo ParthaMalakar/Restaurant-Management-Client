@@ -110,7 +110,7 @@ const Ordering = () => {
     return (
         <div>
             <div className="bg-[#58778f1a]">
-                <h2 className="text-3xl my-7 pt-5 text-center font-bold">Please Give Information for Order</h2>
+                <h2 className="text-3xl my-2 pt-5 text-center font-bold">Please Give Information for Order</h2>
                 <form onSubmit={handleOrder} className=" md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
