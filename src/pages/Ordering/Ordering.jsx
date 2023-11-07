@@ -1,12 +1,20 @@
-import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Authprovider';
 import Swal from 'sweetalert2';
 
 const Ordering = () => {
     const food = useLoaderData();
-    const { _id, food_name, food_image, food_category,made_by, price, quantity } = food;
+    const navigate = useNavigate();
+    const { _id, food_name, food_image,order_count, food_category,made_by, price, quantity } = food;
     const { user } = useContext(AuthContext);
+    const {email}=user;
+    const[carts,setCarts]=useState([])
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${email}`)
+            .then(res => res.json())
+            .then(data => setCarts(data.Myorder))
+    }, [])
     const handleOrder = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -40,6 +48,62 @@ const Ordering = () => {
             })
             return;
         }
+        if (quantity == 0) {
+            Swal.fire({
+                title: 'you can not order because available quantity is 0!',
+                text: 'Do you want to continue',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+            return;
+        }
+
+        const Puser = {
+            _id,
+            order_count: order_count+1,
+            quantity: quantity-Quantity
+        }
+        console.log(Puser)
+        fetch('http://localhost:5000/foods', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(Puser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        
+                    })
+       
+          console.log(carts)
+          const cart =[...carts,{_id,Quantity}]
+        console.log(cart)
+          const userUp = {
+            email,
+            "Myorder" : cart
+
+        }
+        console.log(userUp)
+        fetch('http://localhost:5000/user', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userUp)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        Swal.fire(
+                            'food order success!',
+                            'You clicked the button!',
+                            'success'
+                          )
+                          navigate(location?.state ? location.state : '/allFoods');
+                    })
+        
     }
     return (
         <div>

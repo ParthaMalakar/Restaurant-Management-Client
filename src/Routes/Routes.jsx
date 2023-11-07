@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Ordering from "../pages/Ordering/Ordering";
 import PrivateRoute from "./PrivateRoute";
+import MyaddedFood from "../pages/MyaddedFood/MyaddedFood";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
             path:'/allFoods',
             element:<AllFoods></AllFoods>,
             
+        },
+        {
+            path:'/myfood/:add_by',
+            element:<MyaddedFood></MyaddedFood>,
+            loader:({params})=>fetch(`http://localhost:5000/food/${params.add_by}`)
+
         },
         {
             path:'/blog',
