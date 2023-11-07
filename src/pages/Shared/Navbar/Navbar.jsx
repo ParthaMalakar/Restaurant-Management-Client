@@ -65,7 +65,7 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <Link to={`/myfood`} className="hover:bg-amber-300 font-semibold ml-3 p-2 mb-4 bg-gray-300 rounded-xl"><a>My added food items</a></Link>
                                     <Link to="/addfood" className="hover:bg-amber-300 font-semibold ml-3 p-2 mb-4 bg-gray-300 rounded-xl"><a>Add a food item</a></Link>
-                                    <Link className="hover:bg-amber-300 font-semibold ml-3 p-2 mb-4 bg-gray-300 rounded-xl"><a> My ordered food items</a></Link>
+                                    <Link to="/myorder" className="hover:bg-amber-300 font-semibold ml-3 p-2 mb-4 bg-gray-300 rounded-xl"><a> My ordered food items</a></Link>
                                 </ul>
                             </div>
                             <p>UserName:{user.displayName}</p>
