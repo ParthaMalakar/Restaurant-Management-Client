@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Authprovider';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Ordering = () => {
     const food = useLoaderData();
@@ -11,11 +12,16 @@ const Ordering = () => {
     const { user } = useContext(AuthContext);
     const {email}=user;
     const[carts,setCarts]=useState([])
+    const axiosSecure = useAxiosSecure();
+    const url = `user/${email}`;
+
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
-            .then(res => res.json())
-            .then(data => setCarts(data.Myorder))
-    }, [])
+        // fetch(`http://localhost:5000/user/${email}`,{credentials:'include'})
+        //     .then(res => res.json())
+        //     .then(data => setCarts(data.Myorder))
+        axiosSecure.get(url)
+        .then(res => setCarts(res.data.Myorder))
+    }, [url,axiosSecure])
     const handleOrder = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -89,7 +95,7 @@ const Ordering = () => {
 
         }
         console.log(userUp)
-        fetch('http://localhost:5000/user', {
+        fetch('http://localhost:5000/user',{
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

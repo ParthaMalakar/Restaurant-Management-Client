@@ -10,7 +10,7 @@ const MyaddedFood = () => {
     const[Myaddedfood,setMyaddedfood]=useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:5000/food/${email}`)
+        fetch(`http://localhost:5000/food/${email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setMyaddedfood(data))
     }, [])

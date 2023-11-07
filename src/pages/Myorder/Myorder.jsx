@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import OrderedFood from '../OrderedFood/OrderedFood';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Myorder = () => {
 
@@ -11,11 +12,15 @@ const Myorder = () => {
     const{email}=user;
     const[order,setOrder]=useState([])
     const FoodsItem = useLoaderData();
+    const axiosSecure = useAxiosSecure();
+    const url = `user/${email}`;
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
-            .then(res => res.json())
-            .then(data => setOrder(data.Myorder))
-    }, [])
+        // fetch(`http://localhost:5000/user/${email}`,{credentials:'include'})
+        //     .then(res => res.json())
+        //     .then(data => setOrder(data.Myorder))
+        axiosSecure.get(url)
+        .then(res => setOrder(res.data.Myorder))
+    }, [url, axiosSecure])
     const cartIds = order.map(order => order._id);
     const Ids = order.map(order => order.Quantity);
     console.log(Ids)
