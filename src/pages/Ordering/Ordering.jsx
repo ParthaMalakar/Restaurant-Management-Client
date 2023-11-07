@@ -20,7 +20,8 @@ const Ordering = () => {
         const form = new FormData(e.currentTarget);
 
         const Quantity = form.get('quantity');
-        const BName = form.get('BName')
+        const BName = form.get('BName');
+        const time = form.get('BDate');
         if (BName == made_by ) {
             Swal.fire({
                 title: 'Can not purchase Own added product!',
@@ -61,11 +62,12 @@ const Ordering = () => {
         const Puser = {
             _id,
             order_count: order_count+1,
-            quantity: quantity-Quantity
+            quantity: quantity-Quantity,
+            time
         }
         console.log(Puser)
         fetch('http://localhost:5000/foods', {
-                    method: 'PATCH',
+                    method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
                     },
@@ -146,7 +148,7 @@ const Ordering = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Buying Date</span>
                         </label>
-                        <input type="date" required name="BDate" placeholder="Buying Date" className="input input-bordered" />
+                        <input type="time" required name="BDate" placeholder="Buying Date" className="input input-bordered" />
 
                     </div>
                     <div className="form-control mt-6">

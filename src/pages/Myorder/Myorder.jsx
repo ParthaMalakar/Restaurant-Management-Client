@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/Authprovider';
 import { useLoaderData } from 'react-router-dom';
 import OrderedFood from '../OrderedFood/OrderedFood';
+import Swal from 'sweetalert2';
 
 const Myorder = () => {
 
@@ -15,7 +16,8 @@ const Myorder = () => {
             .then(data => setOrder(data.Myorder))
     }, [])
     const cartIds = order.map(order => order._id);
-    console.log(cartIds)
+    const Ids = order.map(order => order.Quantity);
+    console.log(Ids)
     const foodsById = {};
     FoodsItem.forEach(food => {
     foodsById[food._id] = food;
@@ -26,14 +28,58 @@ const Myorder = () => {
   const myfoods = matchedfoods.filter(pro => pro !== undefined);
 
     
+  const handleDelete =_id =>{
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
 
+            const remaining = order.filter(food => food._id !== _id);
+            const userUp = {
+                email,
+                "Myorder" : remaining
+    
+            }
+            fetch('http://localhost:5000/user', {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userUp)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    Swal.fire(
+                        'Deleted!',
+                        'Your Product has been deleted.',
+                        'success'
+                    )
+                })
+            setOrder(remaining);
+            console.log(remaining)
+                        
+                        // window.location.reload(true)
+                    
+                
+
+        }
+    })
+}
     
     
    
     return (
-        <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-7'>
-            {myfoods.map((food,index)=><OrderedFood key={index} food={food} ></OrderedFood>)}
+        <div className='max-w-7xl mx-auto p-6 bg-emerald-200'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-7 '>
+            {
+            myfoods.map((food,index)=><OrderedFood key={index} food={food} handleDelete={handleDelete} ></OrderedFood>)}
             
         </div>
         </div>

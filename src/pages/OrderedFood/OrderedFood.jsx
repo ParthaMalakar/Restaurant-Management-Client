@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const OrderedFood = ({food}) => {
-    const {_id,food_name,food_image,price}=food;
-
+const OrderedFood = ({food,handleDelete}) => {
+    const {_id,food_name,food_image,price,made_by,time}=food;
+    
     return (
         <div>
             <div className="card mx-auto mt-4 bg-base-100 shadow-xl">
@@ -13,8 +13,11 @@ const OrderedFood = ({food}) => {
                 <div className="card-body">
                     <h2 className="card-title font-semibold mx-auto">{food_name}</h2>
                     <p className="font-semibold">Price:{price}$</p>
+                    <p className="font-semibold">Food Owner:{made_by}</p>
+                    <p className="font-semibold">Added time:{time}</p>
+
                     <div className="card-actions ">
-                    <Link to={`/foodupdate/${_id}`} className="btn btn-primary flex-grow">Delete</Link>
+                    <button onClick={()=>handleDelete(_id)} className="btn btn-primary flex-grow">Delete</button>
 
                         
                     </div>
