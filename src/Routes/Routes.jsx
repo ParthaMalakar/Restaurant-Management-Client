@@ -9,6 +9,8 @@ import Registration from "../pages/Registration/Registration";
 import Ordering from "../pages/Ordering/Ordering";
 import PrivateRoute from "./PrivateRoute";
 import MyaddedFood from "../pages/MyaddedFood/MyaddedFood";
+import AddFood from "../pages/AddFood/AddFood";
+
 
 const router = createBrowserRouter([
     {
@@ -37,16 +39,21 @@ const router = createBrowserRouter([
 
         },
         {
+            path:'/myfood',
+            element:<PrivateRoute><MyaddedFood></MyaddedFood></PrivateRoute>,
+
+        },
+        {
+            path:'/addfood',
+            element:<PrivateRoute><AddFood></AddFood></PrivateRoute>,
+
+        },
+        {
             path:'/allFoods',
             element:<AllFoods></AllFoods>,
             
         },
-        {
-            path:'/myfood/:add_by',
-            element:<MyaddedFood></MyaddedFood>,
-            loader:({params})=>fetch(`http://localhost:5000/food/${params.add_by}`)
-
-        },
+        
         {
             path:'/blog',
             element:<BlogPage></BlogPage>,
