@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/Authprovider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -102,6 +103,9 @@ const e = result.user.email
 
     return (
         <div>
+            <Helmet>
+            <title>FoodieFleet|Login</title>
+            </Helmet> 
             <div className="pt-8 bg-[#283d4426]">
                 <h2 className="text-3xl my-10 text-center pt-10 font-bold">Please Login</h2>
                 <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">

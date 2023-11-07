@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Food from '../Food/Food';
 import './AllFoods.css'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { Helmet } from 'react-helmet-async';
 const AllFoods = () => {
     const [foodsItem, setFoodsItem] = useState([]);
     const [value, setValue] = useState([]);
@@ -62,6 +63,9 @@ const AllFoods = () => {
 
     return (
         <div className='bg-slate-300 max-w-7xl mx-auto'>
+            <Helmet>
+            <title>FoodieFleet|AllFood</title>
+            </Helmet> 
             <h3 className={`text-center text-3xl mt-2 font-bold pt-6 `}>All Foods </h3>
             <div className="mt-10 flex justify-end">
                 <input type="text" onChange={(e) => setValue(e.target.value)} className="border-solid border-2 border-[#DEDEDE] bg-[#FFF] py-3 pl-1 w-80" name="text" placeholder="Search Food name here...." />

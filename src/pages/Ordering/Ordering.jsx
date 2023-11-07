@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/Authprovider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Ordering = () => {
     const food = useLoaderData();
@@ -109,6 +110,9 @@ const Ordering = () => {
     }
     return (
         <div>
+            <Helmet>
+            <title>FoodieFleet|Ordering</title>
+            </Helmet> 
             <div className="bg-[#58778f1a]">
                 <h2 className="text-3xl my-2 pt-5 text-center font-bold">Please Give Information for Order</h2>
                 <form onSubmit={handleOrder} className=" md:w-3/4 lg:w-1/2 mx-auto">

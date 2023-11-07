@@ -4,6 +4,7 @@ import {  useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/Authprovider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const Registration = () => {
@@ -102,6 +103,9 @@ const Registration = () => {
         }
     return (
         <div>
+            <Helmet>
+            <title>FoodieFleet|Registration</title>
+            </Helmet> 
              <div className="bg-[#837b799f]">
                 <h2 className="text-3xl pt-8 text-center font-bold">Please Register</h2>
                 <form onSubmit={handleRegistration}  className=" md:w-3/4 lg:w-1/2 mx-auto">

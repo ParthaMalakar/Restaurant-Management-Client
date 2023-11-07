@@ -3,6 +3,7 @@ import { AuthContext } from '../../provider/Authprovider';
 import { useLoaderData } from 'react-router-dom';
 import OrderedFood from '../OrderedFood/OrderedFood';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Myorder = () => {
 
@@ -77,6 +78,9 @@ const Myorder = () => {
    
     return (
         <div className='max-w-7xl mx-auto p-6 bg-emerald-200'>
+            <Helmet>
+            <title>FoodieFleet|Myorder</title>
+            </Helmet> 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-7 '>
             {
             myfoods.map((food,index)=><OrderedFood key={index} food={food} handleDelete={handleDelete} ></OrderedFood>)}

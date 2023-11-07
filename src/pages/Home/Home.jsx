@@ -4,12 +4,15 @@ import TopFood from './TopFood/TopFood';
 import { useLoaderData } from 'react-router-dom';
 import Reservation from './Reservation/Reservation';
 import Menu from './Menu/Menu';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const Foods= useLoaderData();
     return (
         <div>
-            
+           <Helmet>
+            <title>FoodieFleet|Home</title>
+            </Helmet> 
         <Banner ></Banner>
         <TopFood Foods={Foods}></TopFood>
         

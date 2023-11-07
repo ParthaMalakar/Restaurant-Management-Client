@@ -3,6 +3,7 @@ import logo from '../../../assets/logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/Authprovider";
 import Swal from "sweetalert2";
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navLinks = <>

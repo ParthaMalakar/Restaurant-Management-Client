@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function BlogPage() {
   return (
     <div className="bg-gray-100 p-4">
+      <Helmet>
+            <title>FoodieFleet|Blog</title>
+            </Helmet> 
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl text-center font-bold mb-4">Understanding Data Binding, NPM, and Database Differences</h1>
 

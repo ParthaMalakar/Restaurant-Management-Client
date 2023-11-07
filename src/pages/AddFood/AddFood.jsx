@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/Authprovider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
     const { user } = useContext(AuthContext);
@@ -45,6 +46,9 @@ fetch('http://localhost:5000/addfood', {
     }
     return (
         <div>
+            <Helmet>
+            <title>FoodieFleet|AddFood</title>
+            </Helmet> 
             <div className="bg-[#4283691a]">
                 <h2 className="text-3xl  pt-5 text-center font-bold">Add an Food item</h2>
                 <form onSubmit={handleAdd} className=" md:w-3/4 lg:w-1/2 mx-auto">
