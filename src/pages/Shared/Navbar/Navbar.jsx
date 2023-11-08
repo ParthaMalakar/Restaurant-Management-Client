@@ -11,7 +11,7 @@ const Navbar = () => {
 
         <li><NavLink className="font-semibold text-lg" to="/allFoods">All Food Items</NavLink></li>
         <li><NavLink className="font-semibold text-lg" to="/blog">Blog</NavLink></li>
-        <li><NavLink className=" font-semibold text-lg" to="/mycart">About Us</NavLink></li>
+        <li><NavLink className=" font-semibold text-lg" to="/about">About Us</NavLink></li>
     </>
     const handleProfile = () => {
         Swal.fire(

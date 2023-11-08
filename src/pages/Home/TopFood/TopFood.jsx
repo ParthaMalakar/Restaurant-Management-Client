@@ -2,10 +2,9 @@
 import axios from "axios";
 import FoodItem from "./FoodItem";
 import { Link } from "react-router-dom";
+ 
+const TopFood = ({ Foods }) => {
 
-const TopFood = ({Foods}) => {
-    
-    
     return (
         
         <div>
@@ -20,6 +19,7 @@ const TopFood = ({Foods}) => {
                <button className="py-2 px-4 bg-cyan-950 rounded-lg text-white mb-4"><Link to='/allFoods'>See All Products</Link></button> 
             </div>
         </div>
+        
     );
 };
 

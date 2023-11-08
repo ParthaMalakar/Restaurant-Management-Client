@@ -2,6 +2,7 @@ import { useState } from 'react';
 import banner from '../../../assets/banner.jpg'
 import banner2 from '../../../assets/banner2.jpg'
 import banner3 from '../../../assets/banner3.jpg'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     const [activeButton, setActiveButton] = useState(1);
     return (
@@ -39,7 +40,7 @@ const Banner = () => {
                                     heartwarming ambiance. Your culinary adventure begins here.
                                 </p>
                                 <div className="mt-10">
-                                    <button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button>
+                                    <Link to="/menu"><button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +71,7 @@ const Banner = () => {
                                 <p className='mb-5 text-white text-base font-thin lg:w-[950px]'>Indulge in a world of exquisite flavors and culinary experiences at our restaurant. From mouthwatering appetizers to delectable main courses and irresistible desserts, we invite you to savor every moment. Explore our diverse menu offerings and embark on a culinary journey that will delight your senses. Join us today and experience the art of fine dining.
                                 </p>
                                 <div className="mt-10">
-                                    <button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button>
+                                <Link to="/menu"><button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +103,7 @@ height: '580px',
         Experience Culinary Delights Like Never Before. From Our Kitchen to Your Table.
         </p>
         <div className="mt-10">
-            <button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button>
+        <Link to="/menu"><button className=" rounded-lg bg-[#8b4e50] text-[#FFF] py-[14px] px-7">All Menus</button></Link>
         </div>
     </div>
 </div>

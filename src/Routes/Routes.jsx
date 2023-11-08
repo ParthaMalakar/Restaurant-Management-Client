@@ -13,6 +13,8 @@ import AddFood from "../pages/AddFood/AddFood";
 import Foodupdate from "../pages/Foodupdate/Foodupdate";
 import Myorder from "../pages/Myorder/Myorder";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import MenuPage from "../pages/MenuPage/MenuPage";
+import About from "../pages/About/About";
 
 
 const router = createBrowserRouter([
@@ -73,6 +75,16 @@ const router = createBrowserRouter([
         {
             path:'/blog',
             element:<BlogPage></BlogPage>,
+            
+        },
+        {
+            path:'/menu',
+            element:<MenuPage></MenuPage>,
+            
+        },
+        {
+            path:'/about',
+            element:<About></About>,
             
         },
         {
