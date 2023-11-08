@@ -10,7 +10,7 @@ const MyaddedFood = () => {
     const[Myaddedfood,setMyaddedfood]=useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:5000/food/${email}`,{credentials:'include'})
+        fetch(`https://restaurant-management-server-six.vercel.app/food/${email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setMyaddedfood(data))
     }, [])

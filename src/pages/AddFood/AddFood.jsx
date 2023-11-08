@@ -22,7 +22,7 @@ const AddFood = () => {
         const newFood={food_name,food_image,food_category,price,quantity,order_count,made_by,food_origin,description,Add_by}
 e.target.reset();
 console.log(newFood)
-fetch('http://localhost:5000/addfood', {
+fetch('https://restaurant-management-server-six.vercel.app/addfood', {
     method: 'POST',
     headers: {
         'content-type': 'application/json'

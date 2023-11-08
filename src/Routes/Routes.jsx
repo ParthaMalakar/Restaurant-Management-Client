@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader:()=>fetch('http://localhost:5000/topsell')
+            loader:()=>fetch('https://restaurant-management-server-six.vercel.app/topsell')
         },
         {
             path:'/login',
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         {
             path:'/ordering/:id',
             element:<PrivateRoute><Ordering></Ordering></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/foodDetails/${params.id}`)
+            loader:({params})=>fetch(`https://restaurant-management-server-six.vercel.app/foodDetails/${params.id}`)
 
         },
         {
@@ -57,13 +57,13 @@ const router = createBrowserRouter([
         {
             path:'/myorder',
             element:<PrivateRoute><Myorder></Myorder></PrivateRoute>,
-            loader:()=>fetch('http://localhost:5000/foodsItem')
+            loader:()=>fetch('https://restaurant-management-server-six.vercel.app/foodsItem')
 
         },
         {
             path: '/foodupdate/:id',
             element: <PrivateRoute><Foodupdate></Foodupdate></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/foodDetails/${params.id}`)
+            loader:({params})=>fetch(`https://restaurant-management-server-six.vercel.app/foodDetails/${params.id}`)
         },
         
         {
@@ -90,7 +90,7 @@ const router = createBrowserRouter([
         {
             path: '/foodDetails/:id',
             element: <FoodDetails></FoodDetails>,
-            loader:({params})=>fetch(`http://localhost:5000/foodDetails/${params.id}`)
+            loader:({params})=>fetch(`https://restaurant-management-server-six.vercel.app/foodDetails/${params.id}`)
         }
     ]
 },

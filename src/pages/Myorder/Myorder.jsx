@@ -15,7 +15,7 @@ const Myorder = () => {
     const axiosSecure = useAxiosSecure();
     const url = `user/${email}`;
     useEffect(() => {
-        // fetch(`http://localhost:5000/user/${email}`,{credentials:'include'})
+        // fetch(`https://restaurant-management-server-six.vercel.app/user/${email}`,{credentials:'include'})
         //     .then(res => res.json())
         //     .then(data => setOrder(data.Myorder))
         axiosSecure.get(url)
@@ -52,7 +52,7 @@ const Myorder = () => {
                 "Myorder" : remaining
     
             }
-            fetch('http://localhost:5000/user', {
+            fetch('https://restaurant-management-server-six.vercel.app/user', {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'

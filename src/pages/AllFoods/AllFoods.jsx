@@ -16,13 +16,13 @@ const AllFoods = () => {
     const numberOfPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOfPages).keys()];
     useEffect(() => {
-        fetch(`http://localhost:5000/foods?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://restaurant-management-server-six.vercel.app/foods?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setFoodsItem(data))
     }, [currentPage, itemsPerPage])
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/search?name=${value}`)
+        fetch(`https://restaurant-management-server-six.vercel.app/search?name=${value}`)
             .then((response) => response.json())
             .then((data) => {
                 setFoodsItem(data)
@@ -36,7 +36,7 @@ const AllFoods = () => {
         window.location.reload(true)
     }
     useEffect(() => {
-        fetch('http://localhost:5000/foodsCount')
+        fetch('https://restaurant-management-server-six.vercel.app/foodsCount')
             .then(res => res.json())
             .then(data => setCount(data.count))
     }, [])

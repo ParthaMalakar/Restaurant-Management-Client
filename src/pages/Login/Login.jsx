@@ -18,7 +18,7 @@ const Login = () => {
                     const myOrder = [];
 const e = result.user.email
                 const userdata = { email:e, Myorder: myOrder };
-                fetch('http://localhost:5000/user', {
+                fetch('https://restaurant-management-server-six.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -67,7 +67,7 @@ const e = result.user.email
                 console.log(result.user);
                 const myorder = [];
                 const userdata = { email, Myorder: myorder };
-                fetch('http://localhost:5000/user', {
+                fetch('https://restaurant-management-server-six.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

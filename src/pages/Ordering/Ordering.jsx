@@ -16,7 +16,7 @@ const Ordering = () => {
     const url = `user/${email}`;
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/user/${email}`,{credentials:'include'})
+        // fetch(`https://restaurant-management-server-six.vercel.app/user/${email}`,{credentials:'include'})
         //     .then(res => res.json())
         //     .then(data => setCarts(data.Myorder))
         axiosSecure.get(url)
@@ -73,7 +73,7 @@ const Ordering = () => {
             time
         }
         console.log(Puser)
-        fetch('http://localhost:5000/foods', {
+        fetch('https://restaurant-management-server-six.vercel.app/foods', {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -95,7 +95,7 @@ const Ordering = () => {
 
         }
         console.log(userUp)
-        fetch('http://localhost:5000/user',{
+        fetch('https://restaurant-management-server-six.vercel.app/user',{
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
