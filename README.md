@@ -1,5 +1,6 @@
 # FoodieFleet
-# Live Link:https://foodiefleet-1d66b.web.app
+# Server or Backend : https://github.com/ParthaMalakar/Restaurant-Management-Server
+# Live Link: https://projectfood-43ce6.web.app
 
 
 User-Friendly Interface:
